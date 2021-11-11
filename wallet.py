@@ -6,17 +6,14 @@ class InsufficientAmount(Exception):
 
 class Wallet(object):
     def __init__(self, initial_amount=0):
-        self.balance = initial_amount
+        raise InsufficientAmount
 
 
     def spend_cash(self, amount):
-        if(amount > self.balance):
-        	raise InsufficientAmount
-        else:
-        	self.balance -= amount
+        raise InsufficientAmount
 
 
     def add_cash(self, amount):
-        self.balance += amount
+        raise InsufficientAmount
         
 
