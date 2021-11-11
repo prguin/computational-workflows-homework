@@ -123,7 +123,9 @@ sudo docker run -ti -v $(pwd):/root/shared pvitello/computational-workflows
 # Add your commands here
 cp /home/piergiorgio/Downloads/computational-workflows-homework-master/wallet.py  .
 cp /home/piergiorgio/Downloads/computational-workflows-homework-master/test_wallet.py  .
-
+git add wallet.py test_wallet.py
+git commit
+git push
 ```
 
 2. Start a Docker container using your image and share your repository into a
