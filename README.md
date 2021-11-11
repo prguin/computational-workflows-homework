@@ -109,7 +109,7 @@ sudo docker push pvitello/computational-workflows
 
 ```
 # Add your commands here
-sudo docker run -ti -v /home/piergiorgio/GIT/computational-workflows-homework:/root/shared pvitello/computational-workflows
+sudo docker run -ti -v $(pwd):/root/shared pvitello/computational-workflows
 ```
 
 ## Setup a simple Python test suite
@@ -131,7 +131,7 @@ cp /home/piergiorgio/Downloads/computational-workflows-homework-master/test_wall
 
 ```
 # Add your commands here
-sudo docker run -ti -v /home/piergiorgio/GIT/computational-workflows-homework:/root/shared pvitello/computational-workflows
+sudo docker run -ti -v $(pwd):/root/shared pvitello/computational-workflows
 ```
 
 3. Run the tests inside the container by going to `/root/shared` and running the
