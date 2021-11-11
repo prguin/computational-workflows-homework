@@ -1,0 +1,25 @@
+name: Build and Test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+services:
+  # Application
+  test:
+    image: pvitello/computational-workflows:latest
+    environment:
+    restart: always
+    build:
+      context: ./
+      target: app
+      dockerfile: ./docker/web/Dockerfile
+      args:
+        - SERVER_ENV=test
+    volumes:
+      - ./:/root/shared
+    command:
+      - /root/shared
+      - py.test-3
