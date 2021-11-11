@@ -83,6 +83,9 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+git add Dockerfile
+git commit
+git push
 ```
 
 ## Build and push Docker image
@@ -93,6 +96,9 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+sudo docker build -t pvitello/computational-workflows .
+sudo docker login --username=pvitello
+sudo docker push pvitello/computational-workflows
 ```
 
 ## Run a container, and share in files from the host.
@@ -103,6 +109,7 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+sudo docker run -ti -v /home/piergiorgio/GIT/computational-workflows-homework:/root/shared pvitello/computational-workflows
 ```
 
 ## Setup a simple Python test suite
@@ -114,6 +121,9 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+cp /home/piergiorgio/Downloads/computational-workflows-homework-master/wallet.py  .
+cp /home/piergiorgio/Downloads/computational-workflows-homework-master/test_wallet.py  .
+
 ```
 
 2. Start a Docker container using your image and share your repository into a
@@ -121,6 +131,7 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+sudo docker run -ti -v /home/piergiorgio/GIT/computational-workflows-homework:/root/shared pvitello/computational-workflows
 ```
 
 3. Run the tests inside the container by going to `/root/shared` and running the
