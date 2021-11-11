@@ -1,4 +1,4 @@
-name: Build and Test
+name: Test
 
 on:
   pull_request:
@@ -6,20 +6,16 @@ on:
     branches:
       - main
 
-services:
-  # Application
-  test:
-    image: pvitello/computational-workflows:latest
-    environment:
-    restart: always
-    build:
-      context: ./
-      target: app
-      dockerfile: ./docker/web/Dockerfile
-      args:
-        - SERVER_ENV=test
-    volumes:
-      - ./:/root/shared
-    command:
-      - /root/shared
-      - py.test-3
+
+jobs:
+  job_1:
+    runs-on: ubuntu-latest
+    container: pvitello/computational-workflows:latest
+    steps:
+      - name: My first step
+        uses: actions/checkout@v2
+      - name: Run step
+        run:  py.test-3
+        
+
+
